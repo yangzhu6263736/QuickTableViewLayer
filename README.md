@@ -17,16 +17,22 @@
 <br />
 
 3:在AppDelegate.cpp中添加
+<br />
+
 	#include "cocos2dx_extensions_tableviewbinding.h"
 
 <br />
 
 4:在bool AppDelegate::applicationDidFinishLaunching()方法中添加
+<br />
+
 	luaopen_cocos2dx_extensions_tableviewbinding(L);
 
 <br />
 
 5:在CCLuaStack.h中添加
+<br />
+
     virtual void* executeFunctionByRet(int numArgs);
     virtual void* executeFunctionByHandlerByRet(int nHandler, int numArgs);
 
@@ -83,7 +89,9 @@ void* CCLuaStack::executeFunctionByRet(int numArgs)
     return ret;
 }
 
+
 <br />
+
 
 void* CCLuaStack::executeFunctionByRet(int numArgs)
 {
@@ -131,6 +139,7 @@ void* CCLuaStack::executeFunctionByRet(int numArgs)
     lua_pop(m_state, 1); // remove return value from stack
     return ret;
 }
+
 
 <br />
 
@@ -212,6 +221,8 @@ function createCell(tableview, index)
 	return cell
 end
 
+<br />
+
 --[[
 函  数: numberOfCellsInTableViewCallBack
 功  能: 该函数在初始化显示tableview时被调用，目的是返回在该索引下的cell内容
@@ -235,7 +246,6 @@ end
 <br />
 
 	CCLuaLog("=============xxxx")
-
 	local tableview = FYTableViewLayer:create()
 	tableview:setTableViewPriority(-130)
 	tableview:setTableCellTouchedCallBack(tableCellTouchedCallBack)
@@ -244,16 +254,12 @@ end
 	tableview:setNumberOfCellsInTableViewCallBack(numberOfCellsInTableViewCallBack)
     tableview:setTableViewLayerSize(CCSizeMake(500,500));
     tableview:registerScriptTouchHandler(onTouch, false)
-
     --tableview:
     self:addChild(tableview)
     cctv = tableview:getTableView()
    	cctv:setDirection(1)
 	cctv:setVerticalFillOrder(0)
 	cctv:reloadData()
-    
-
     --tableview:setIsTouchEnabled(true)  
-   
 end
 
