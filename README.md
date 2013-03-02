@@ -246,7 +246,7 @@ end
 <br />
 
 	CCLuaLog("=============xxxx")
-	local tableview = FYTableViewLayer:create()
+	local tableview = QuickTableViewLayer:create()
 	tableview:setTableViewPriority(-130)
 	tableview:setTableCellTouchedCallBack(tableCellTouchedCallBack)
 	tableview:setCellSizeForTableCallBack(cellSizeForTableCallBack)
