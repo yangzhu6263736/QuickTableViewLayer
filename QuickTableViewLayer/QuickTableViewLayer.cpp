@@ -72,9 +72,7 @@ void QuickTableViewLayer::tableCellTouched(CCTableView* table, CCTableViewCell* 
 	{
 		if (_tableCellTouchedHandle)
 		{
-//			CCLuaEngine * engine = static_cast<CCLuaEngine *>(CCScriptEngineManager::sharedManager()->getScriptEngine());
             CCLuaStack* stack = CCLuaEngine::defaultEngine()->getLuaStack();
-
 			stack->pushCCObject(table, "CCTableView");
 			stack->pushCCObject(cell, "CCTableViewCell");		
 			stack->executeFunctionByHandler(_tableCellTouchedHandle, 2);
@@ -88,12 +86,8 @@ CCSize QuickTableViewLayer::cellSizeForTable(CCTableView *table)
 	{
 		if (_cellSizeForTableHandle)
 		{
-//			CCLuaEngine * engine = static_cast<CCLuaEngine *>(CCScriptEngineManager::sharedManager()->getScriptEngine());
             CCLuaStack* stack = CCLuaEngine::defaultEngine()->getLuaStack();
-
 			stack->pushCCObject(table, "CCTableView");
-            
-            
 			CCSize* size = (CCSize*)stack->executeFunctionByHandlerByRet(_cellSizeForTableHandle, 1);
 			return *size;
 		}
@@ -108,9 +102,7 @@ CCTableViewCell* QuickTableViewLayer::tableCellAtIndex(CCTableView *table, unsig
 	{
 		if (_tableCellAtIndexHandle)
 		{
-//			CCLuaEngine * engine = static_cast<CCLuaEngine *>(CCScriptEngineManager::sharedManager()->getScriptEngine());
             CCLuaStack* stack = CCLuaEngine::defaultEngine()->getLuaStack();
-
 			stack->pushCCObject(table, "CCTableView");
 			stack->pushInt(idx);
 			CCTableViewCell* cell = (CCTableViewCell*)stack->executeFunctionByHandlerByRet(_tableCellAtIndexHandle, 2);
@@ -126,9 +118,7 @@ unsigned int QuickTableViewLayer::numberOfCellsInTableView(CCTableView *table)
 	{
 		if (_numberOfCellsInTableViewHandle)
 		{
-//			CCLuaEngine * engine = static_cast<CCLuaEngine *>(CCScriptEngineManager::sharedManager()->getScriptEngine());
             CCLuaStack* stack = CCLuaEngine::defaultEngine()->getLuaStack();
-
 			stack->pushCCObject(table, "CCTableView");
 			int num = stack->executeFunctionByHandler(_numberOfCellsInTableViewHandle, 1);
 			num = num < 0 ? 0 :num;
@@ -145,7 +135,6 @@ void QuickTableViewLayer::scrollViewDidScroll(CCScrollView* view)
 	{
 		if (_scrollViewDidScrollHandle)
 		{
-//			CCLuaEngine * engine = static_cast<CCLuaEngine *>(CCScriptEngineManager::sharedManager()->getScriptEngine());
             CCLuaStack* stack = CCLuaEngine::defaultEngine()->getLuaStack();
 			stack->pushCCObject(view, "CCScrollView");
 			stack->executeFunctionByHandler(_scrollViewDidScrollHandle, 1);
@@ -160,7 +149,6 @@ void QuickTableViewLayer::scrollViewDidZoom(CCScrollView* view)
 	{
 		if (_scrollViewDidZoomHandle)
 		{
-//			CCLuaEngine * engine = static_cast<CCLuaEngine *>(CCScriptEngineManager::sharedManager()->getScriptEngine());
             CCLuaStack* stack = CCLuaEngine::defaultEngine()->getLuaStack();
 			stack->pushCCObject(view, "CCScrollView");
 			stack->executeFunctionByHandler(_scrollViewDidZoomHandle, 1);
