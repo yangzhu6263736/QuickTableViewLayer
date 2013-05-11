@@ -1,4 +1,6 @@
-##说明
+##说明 
+quick-cocos2d-x主线里已经有scrollerview的纯lua实现了，不用binding 效果很好。这个quickTableviewLayer大家就别看了。
+
 这个类是一个朋友的朋友写的,版权是他的，俺问清楚了名字加进去，是针对cococs2d-x 2.0版本的 因为2.1的luabinding接口有变动所以我做了一些修正<br/>
 这里使用是针对quick-cocos2d-x的，我c++水平有限，等廖大后面看了再弄到quick主线里
 
